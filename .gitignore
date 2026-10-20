@@ -1,0 +1,9 @@
+build/
+install/
+log/
+patrol_images/
+.vscode/
+**/.vscode/
+**/__pycache__/
+*.pyc
+.pytest_cache/

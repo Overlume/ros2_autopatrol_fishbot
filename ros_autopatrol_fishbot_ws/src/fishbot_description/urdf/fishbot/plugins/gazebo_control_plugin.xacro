@@ -1,0 +1,36 @@
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="gazebo_control_plugin">
+    <gazebo>
+      <plugin
+        name="gz::sim::systems::DiffDrive"
+        filename="gz-sim-diff-drive-system">
+
+        <!-- 左右轮关节名称必须与 URDF 一致 -->
+        <left_joint>left_wheel_joint</left_joint>
+        <right_joint>right_wheel_joint</right_joint>
+
+        <!-- FishBot 的轮距和轮半径 -->
+        <wheel_separation>0.2</wheel_separation>
+        <wheel_radius>0.032</wheel_radius>
+
+        <!-- 速度命令话题 -->
+        <topic>/cmd_vel</topic>
+
+        <!-- 里程计话题 -->
+        <odom_topic>/odom</odom_topic>
+
+        <!-- TF 话题及坐标系 -->
+        <tf_topic>/tf</tf_topic>
+        <frame_id>odom</frame_id>
+        <child_frame_id>base_footprint</child_frame_id>
+
+        <!-- 里程计发布频率 -->
+        <odom_publish_frequency>30</odom_publish_frequency>
+
+      </plugin>
+    </gazebo>
+  </xacro:macro>
+
+</robot>
